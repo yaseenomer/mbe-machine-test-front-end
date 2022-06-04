@@ -16,7 +16,7 @@ Note: Some of the poster images given in the `db.json` file will be missing, an 
  
  - The maximum time for the completion of this task is 2 days.
  - The candidate should fork this repo, complete the task exactly per the task guidelines, push and create a pull request to me.
- - Any other methods of submissions including emails, google drive etc. will be rejected.
+ - Any other methods of submitting the code including emails, google drive,wetransfer etc. will be rejected.
 
 
 **Happy coding** 
