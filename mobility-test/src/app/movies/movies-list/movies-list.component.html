@@ -1,0 +1,54 @@
+<div class="row justify-content-between my-5">
+  <div class="col-4">
+    <input
+      class="form-control me-2 rounded-pill"
+      type="search"
+      placeholder="Search"
+      aria-label="Search"
+      [formControl]="search"
+    />
+  </div>
+  <div class="col-4">
+    <select class="form-select rounded-pill" (change)="filterByGenre($event)">
+      <option selected>Open this select menu</option>
+
+      <option *ngFor="let item of genres$ | async" [value]="item">
+        {{ item }}
+      </option>
+    </select>
+  </div>
+</div>
+
+<div class="row" *ngIf="(movies$ | async)?.length else empty ">
+  <div
+    class="col-lg-4 col-md-6 col-sm-12"
+    *ngFor="let movie of movies$ | async"
+  >
+    <div class="card mb-4 rounded-4">
+      <img
+        class="card-img-top"
+        [src]="movie.posterUrl"
+        onerror="this.src='https://via.placeholder.com/300x450'"
+        alt="Card image cap"
+      />
+      <div class="card-body">
+        <h5 class="card-title">
+          <a
+            style="text-decoration: none"
+            [routerLink]="['/movies', movie.id]"
+            >{{ movie.title }}</a
+          >
+        </h5>
+        <p class="card-text">
+          {{ movie?.year }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <ng-template #empty>
+    <div class="col-12">
+      <h3 class="text-center">No movies found 😢</h3>
+    </div>
+  </ng-template>
